@@ -104,3 +104,11 @@ class TheLoomwrightHandlers:
         self._log("Simulate Interaction button clicked.")
         # This will trigger interaction simulation logic in the main Loomwright application.
         messagebox.showinfo("Simulate Interaction", "This button will trigger interaction simulation.")
+
+    def handle_character_creator_button_click(self, event=None, widget_name=None):
+        self._log("Character Creator button clicked.")
+        self.app.show_view("character_creator.tui")
+
+    def handle_card_creator_button_click(self, event=None, widget_name=None):
+        self._log("Card Creator button clicked.")
+        self.app.show_view("card_creator.tui")

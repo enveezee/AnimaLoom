@@ -24,3 +24,29 @@ pady = 10
 
 [widgets.bindings]
 "<Button-1>" = "handle_load_module_button_click"
+
+[[widgets]]
+type = "ttk.Button"
+name = "character_creator_button"
+
+[widgets.config]
+text = "Character Creator"
+
+[widgets.layout.pack]
+pady = 10
+
+[widgets.bindings]
+"<Button-1>" = "handle_character_creator_button_click"
+
+[[widgets]]
+type = "ttk.Button"
+name = "card_creator_button"
+
+[widgets.config]
+text = "Card Creator"
+
+[widgets.layout.pack]
+pady = 10
+
+[widgets.bindings]
+"<Button-1>" = "handle_card_creator_button_click"

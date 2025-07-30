@@ -1,0 +1,104 @@
+# AnimaLoom: The Hyle - ui_definitions/character_creator.tui
+# Defines the UI for the Character Creator.
+
+[[widgets]]
+type = "ttk.Frame"
+name = "creator_frame"
+
+[widgets.layout.pack]
+padx = 10
+pady = 10
+fill = "both"
+expand = true
+
+[[widgets.children]]
+type = "ttk.Label"
+name = "title_label"
+
+[widgets.children.config]
+text = "Character Creator"
+font = "-size 16 -weight bold"
+
+[widgets.children.layout.pack]
+pady = 10
+
+[[widgets.children]]
+type = "ttk.Frame"
+name = "main_content_frame"
+
+[widgets.children.layout.pack]
+fill = "both"
+expand = true
+
+[[widgets.children.children]]
+type = "ScrollableFrame"
+name = "character_scroll_frame"
+
+[widgets.children.children.layout.pack]
+fill = "both"
+expand = true
+
+[[widgets.children.children.children]]
+type = "DynamicContentPlaceholder"
+name = "character_properties_section"
+
+[widgets.children.children.children.config]
+builder_function = "build_character_properties_section"
+data_key = "game_config.character_properties" # Path to data in loaded game_hyle
+
+[widgets.children.children.children.layout.pack]
+fill = "x"
+
+[[widgets.children.children.children]]
+type = "DynamicContentPlaceholder"
+name = "character_attributes_section"
+
+[widgets.children.children.children.config]
+builder_function = "build_character_attributes_section"
+data_key = "game_config.character_attributes" # Path to data in loaded game_hyle
+
+[widgets.children.children.children.layout.pack]
+fill = "both"
+expand = true
+pady = 10
+
+[[widgets.children]]
+type = "ttk.Frame"
+name = "button_frame"
+
+[widgets.children.layout.pack]
+side = "bottom"
+fill = "x"
+pady = 10
+
+[[widgets.children.children]]
+type = "ttk.Button"
+name = "randomize_button"
+
+[widgets.children.children.config]
+text = "Randomize Attributes"
+
+[widgets.children.children.layout.pack]
+side = "left"
+expand = true
+fill = "x"
+padx = 5
+
+[widgets.children.children.bindings]
+"<Button-1>" = "handle_randomize_attributes"
+
+[[widgets.children.children]]
+type = "ttk.Button"
+name = "save_button"
+
+[widgets.children.children.config]
+text = "Save Character"
+
+[widgets.children.children.layout.pack]
+side = "right"
+expand = true
+fill = "x"
+padx = 5
+
+[widgets.children.children.bindings]
+"<Button-1>" = "handle_save_character"

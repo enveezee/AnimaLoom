@@ -14,6 +14,7 @@ from the_loom.the_eidolon import Eidolon
 
 from ui_components.the_loomwright_ui_builder import TheLoomwrightUIBuilder
 from ui_components.the_loomwright_handlers import TheLoomwrightHandlers
+from ui_components import dynamic_ui_builders # Import the new module
 
 class TheLoomwrightApp:
     def __init__(self, master):
@@ -40,12 +41,16 @@ class TheLoomwrightApp:
         self.ui_builder.set_event_handlers(self.event_handlers)
 
         # Register dynamic content builders
-        # These functions will be called by TheLoomwrightUIBuilder when it encounters a DynamicContentPlaceholder
-        # self.ui_builder.register_dynamic_builder("build_character_properties_section", self._build_character_properties_section)
-        # self.ui_builder.register_dynamic_builder("build_character_attributes_section", self._build_character_attributes_section)
-        # self.ui_builder.register_dynamic_builder("build_card_properties_section", self._build_card_properties_section)
+        self.ui_builder.register_dynamic_builder("build_character_properties_section", dynamic_ui_builders.build_character_properties_section)
+        self.ui_builder.register_dynamic_builder("build_character_attributes_section", dynamic_ui_builders.build_character_attributes_section)
+        self.ui_builder.register_dynamic_builder("build_card_properties_section", dynamic_ui_builders.build_card_properties_section)
 
         self.ui_builder.build_ui("main_window.tui")
+
+    def show_view(self, view_filename: str):
+        """Clears the current UI and builds a new one from the specified TUI/JUI file."""
+        # Pass the current game_hyle to the builder for dynamic content
+        self.ui_builder.build_ui(view_filename, dynamic_data=self.game_hyle)
 
     def load_game_module(self, module_name: str) -> bool:
         game_module_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'game_modules', module_name))

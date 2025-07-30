@@ -1,0 +1,65 @@
+# AnimaLoom: The Hyle - ui_definitions/card_creator.tui
+# Defines the UI for the Card Creator.
+
+[[widgets]]
+type = "ttk.Frame"
+name = "creator_frame"
+
+[widgets.layout.pack]
+padx = 10
+pady = 10
+fill = "both"
+expand = true
+
+[[widgets.children]]
+type = "ttk.Label"
+name = "title_label"
+
+[widgets.children.config]
+text = "Card Creator"
+font = "-size 16 -weight bold"
+
+[widgets.children.layout.pack]
+pady = 10
+
+[[widgets.children]]
+type = "DynamicContentPlaceholder"
+name = "card_properties_section"
+
+[widgets.children.config]
+builder_function = "build_card_properties_section"
+data_key = "game_config.card_properties" # Path to data in loaded game_hyle
+
+[widgets.children.layout.pack]
+fill = "both"
+expand = true
+pady = 10
+
+[[widgets.children]]
+type = "ttk.Button"
+name = "load_sample_button"
+
+[widgets.children.config]
+text = "Load Sample Card"
+
+[widgets.children.layout.pack]
+side = "left"
+pady = 20
+padx = 5
+
+[widgets.children.bindings]
+"<Button-1>" = "handle_load_sample_card"
+
+[[widgets.children]]
+type = "ttk.Button"
+name = "save_button"
+
+[widgets.children.config]
+text = "Save Card"
+
+[widgets.children.layout.pack]
+side = "bottom"
+pady = 20
+
+[widgets.children.bindings]
+"<Button-1>" = "handle_save_card"
