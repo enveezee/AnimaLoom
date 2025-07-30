@@ -1,4 +1,4 @@
-# AnimaLoom Test Report - 2025-07-30 00:49:24
+# AnimaLoom Test Report - 2025-07-30 01:50:04
 This report details the output of basic functional tests for the AnimaLoom engine components.
 Each test runs a specific module's `if __name__ == '__main__':` block.
 
@@ -62,13 +62,13 @@ Created Eidolon: Gregor the Guard (Type: static)
 Gregor Strength: 15
 Gregor Openness: 20
 Created Eidolon: Bandit (Type: template)
-Bandit 1 Strength: 11
-Bandit 1 Agility: 10
-Bandit 1 Agreeableness: -10
+Bandit 1 Strength: 8
+Bandit 1 Agility: 13
+Bandit 1 Agreeableness: -4
 Created Eidolon: Bandit (Type: template)
-Bandit 2 Strength: 12
+Bandit 2 Strength: 11
 Bandit 2 Agility: 10
-Bandit 2 Agreeableness: -11
+Bandit 2 Agreeableness: -7
 ```
 **Exit Code:** 0
 

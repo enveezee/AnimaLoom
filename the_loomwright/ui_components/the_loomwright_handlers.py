@@ -1,7 +1,7 @@
 import os
 import random
 import tkinter as tk
-from tkinter import filedialog, messagebox
+from tkinter import filedialog, messagebox, simpledialog # Import simpledialog
 from typing import TYPE_CHECKING, Any, Dict
 
 # Type checking for circular dependency
@@ -14,12 +14,14 @@ if TYPE_CHECKING:
 class TheLoomwrightHandlers:
     def __init__(
         self,
+        app: Any, # The main application instance
         builder: "TheLoomwrightUIBuilder",
         alembic: "TheAlembic",
         moirai: "TheMoirai",
         nexus: "TheNexus",
         game_hyle: Dict[str, Any] # This will contain the loaded game_config, characters, cards, etc.
     ):
+        self.app = app
         self.builder = builder
         self.alembic = alembic
         self.moirai = moirai
@@ -83,9 +85,15 @@ class TheLoomwrightHandlers:
 
     def handle_load_module_button_click(self, event=None, widget_name=None):
         self._log("Load Module button clicked.")
-        # This will trigger the module loading process in the main Loomwright application.
-        # For now, it's a placeholder that would ideally open a dialog or prompt for module name.
-        messagebox.showinfo("Load Module", "This button will trigger loading a game module.")
+        module_name = tk.simpledialog.askstring("Load Game Module", "Enter module name (e.g., kismet_social):")
+        if module_name:
+            if self.app.load_game_module(module_name):
+                messagebox.showinfo("Module Loaded", f"Game module '{module_name}' loaded successfully!")
+                # Update the game_hyle reference in handlers after successful load
+                self.game_hyle = self.app.game_hyle
+                # Optionally, update UI to show loaded module name or enable other features
+            else:
+                messagebox.showerror("Load Error", f"Failed to load game module '{module_name}'. Check console for details.")
 
     def handle_create_eidolon_button_click(self, event=None, widget_name=None):
         self._log("Create Eidolon button clicked.")
