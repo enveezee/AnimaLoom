@@ -1,0 +1,67 @@
+# AnimaLoom: The Hyle - kismet_social/characters.toml
+# Defines static and template Eidolon (character) definitions for the kismet_social game module.
+
+[characters.gregor_the_guard]
+name = "Gregor the Guard"
+generation_type = "static"
+
+[characters.gregor_the_guard.core]
+strength = 15
+agility = 8
+intellect = 7
+charisma = 5
+resilience = 12
+passion = 3
+perception = 6
+composure = 10
+
+[characters.gregor_the_guard.personality]
+openness = 20
+conscientiousness = 80
+extraversion = 30
+agreeableness = 40
+neuroticism = 10
+
+[characters.gregor_the_guard.dynamic_states]
+health = 100
+stamina = 100
+social_battery = 70
+emotional_state = "neutral"
+
+[characters.gregor_the_guard.ledger]
+trauma = 5
+secrets = []
+grievances = {}
+
+
+[characters.town_gossip]
+name = "Town Gossip"
+generation_type = "template"
+
+[characters.town_gossip.core]
+strength = { type = "range", min = 3, max = 7 }
+agility = { type = "range", min = 5, max = 10 }
+intellect = { type = "range", min = 10, max = 14 }
+charisma = { type = "range", min = 12, max = 18 }
+resilience = { type = "range", min = 5, max = 9 }
+passion = { type = "range", min = 8, max = 12 }
+perception = { type = "range", min = 15, max = 20 }
+composure = { type = "range", min = 7, max = 11 }
+
+[characters.town_gossip.personality]
+openness = { type = "range", min = 60, max = 90 }
+conscientiousness = { type = "range", min = 20, max = 50 }
+extraversion = { type = "range", min = 70, max = 100 }
+agreeableness = { type = "range", min = 30, max = 60 }
+neuroticism = { type = "range", min = 40, max = 70 }
+
+[characters.town_gossip.dynamic_states]
+health = { type = "range", min = 80, max = 100 }
+stamina = { type = "range", min = 80, max = 100 }
+social_battery = { type = "range", min = 90, max = 100 }
+emotional_state = "neutral"
+
+[characters.town_gossip.ledger]
+trauma = { type = "range", min = 0, max = 10 }
+secrets = []
+grievances = {}

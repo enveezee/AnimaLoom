@@ -1,0 +1,7 @@
+# AnimaLoom Project Dependencies
+
+# Python 3.11 or newer is required due to the use of `tomllib` from the standard library.
+# No external Python packages are currently required.
+
+# Example of how a dependency would be listed if needed:
+# some-package==1.2.3

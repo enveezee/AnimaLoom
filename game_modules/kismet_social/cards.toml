@@ -1,0 +1,73 @@
+# AnimaLoom: The Hyle - kismet_social/cards.toml
+# Defines the interaction cards for the kismet_social game module.
+
+[cards.offer_a_gift]
+name = "Offer a Gift"
+icon = "🎁"
+type = "Action"
+description = "Offer a small token of appreciation or friendship."
+challenge_attribute = "charisma"
+
+[cards.offer_a_gift.effects.success]
+description = "Target gains Platonic affinity."
+formula = "affinity_change_platonic_success"
+
+[cards.offer_a_gift.effects.failure]
+description = "Target is unimpressed."
+formula = "affinity_change_platonic_fail"
+
+[cards.offer_a_gift.costs]
+social_battery = "social_battery_drain_light"
+
+
+[cards.tell_a_joke]
+name = "Tell a Joke"
+icon = "😂"
+type = "Action"
+description = "Attempt to lighten the mood with humor."
+challenge_attribute = "charisma"
+
+[cards.tell_a_joke.effects.success]
+description = "Target's mood shifts towards Joyful."
+formula = "tell_joke_success_score"
+
+[cards.tell_a_joke.effects.failure]
+description = "Awkward silence. Lose some Platonic affinity."
+formula = "affinity_change_platonic_fail"
+
+[cards.tell_a_joke.costs]
+social_battery = "social_battery_drain_light"
+
+
+[cards.intimidate]
+name = "Intimidate"
+icon = "😠"
+type = "Action"
+description = "Attempt to assert dominance or instill fear."
+challenge_attribute = "strength"
+
+[cards.intimidate.effects.success]
+description = "Target's mood becomes Scared."
+formula = "intimidate_power"
+
+[cards.intimidate.effects.failure]
+description = "Target's mood becomes Angry. Gain Antagonism."
+formula = "affinity_change_platonic_fail" # Re-using for negative affinity change example
+
+[cards.intimidate.costs]
+social_battery = "social_battery_drain_heavy"
+
+
+[cards.arcane_blast]
+name = "Arcane Blast"
+icon = "✨"
+type = "Spell"
+description = "Deal magical damage to a target."
+challenge_attribute = "intellect"
+
+[cards.arcane_blast.effects.success]
+description = "Deal 3 damage to target enemy. If target has a Status Effect, deal 5 instead."
+formula = "(actor.core.intellect * 0.5) + 3"
+
+[cards.arcane_blast.costs]
+stamina = 2

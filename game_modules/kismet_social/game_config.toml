@@ -1,0 +1,50 @@
+# AnimaLoom: The Hyle - kismet_social/game_config.toml
+# General game configuration for the kismet_social game module.
+
+[game]
+name = "Kismet Social Simulation"
+description = "A social simulation game demonstrating the AnimaLoom engine."
+version = "0.1.0"
+
+[default_eidolon_attributes]
+# Default values for Eidolon attributes if not specified in character definitions
+# These can be overridden by specific character or template definitions.
+
+[default_eidolon_attributes.core]
+strength = 5
+agility = 5
+intellect = 5
+charisma = 5
+resilience = 5
+passion = 5
+perception = 5
+composure = 5
+
+[default_eidolon_attributes.personality]
+openness = 50
+conscientiousness = 50
+extraversion = 50
+agreeableness = 50
+neuroticism = 50
+
+[default_eidolon_attributes.dynamic_states]
+health = 100
+stamina = 100
+social_battery = 100
+emotional_state = "neutral"
+
+[default_eidolon_attributes.ledger]
+trauma = 0
+secrets = []
+grievances = {}
+
+[game_rules]
+default_dice_roll_range = [1, 10] # For challenge rolls
+max_affinity_value = 100
+min_affinity_value = -100
+
+[card_types]
+action = "Actions that directly affect the world or other Eidolons."
+emotion = "Cards representing emotional expressions or internal states."
+item = "Usable items that provide temporary or permanent effects."
+spell = "Magical abilities with specific effects."

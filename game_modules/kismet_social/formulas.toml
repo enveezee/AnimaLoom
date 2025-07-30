@@ -1,0 +1,42 @@
+# AnimaLoom: The Hyle - kismet_social/formulas.toml
+# Defines the core game logic and calculations for the kismet_social game module.
+
+[formulas.tell_joke_success_score]
+description = "Calculates the raw score for an actor's attempt to tell a joke."
+expression = "(actor.core.charisma * 1.5) + (actor.personality.extraversion * 0.5) + (actor.dynamic_states.social_battery * 0.1)"
+
+[formulas.social_action_resistance]
+description = "Calculates a target's resistance to a general social action."
+expression = "target.core.resilience + (target.personality.agreeableness * 0.5) - (target.ledger.trauma * 0.2)"
+
+[formulas.intimidate_power]
+description = "Calculates the raw power of an actor's intimidation attempt."
+expression = "(actor.core.strength * 1.2) + (actor.core.composure * 0.8) + (actor.dynamic_states.emotional_state == 'angry' ? 10 : 0)"
+
+[formulas.intimidate_resistance]
+description = "Calculates a target's resistance to intimidation."
+expression = "target.core.resilience + (target.personality.neuroticism * -0.5)"
+
+[formulas.affinity_change_platonic_success]
+description = "Calculates the change in platonic affinity on a successful positive social interaction."
+expression = "10 + (actor.personality.agreeableness * 0.1) - (target.ledger.grievances.get(actor.name, 0) * 0.5)"
+
+[formulas.affinity_change_platonic_fail]
+description = "Calculates the change in platonic affinity on a failed positive social interaction."
+expression = "-5 - (actor.personality.neuroticism * 0.1)"
+
+[formulas.social_battery_drain_light]
+description = "Calculates light social battery drain for an action."
+expression = "5 - (actor.personality.extraversion * 0.05)"
+
+[formulas.social_battery_drain_heavy]
+description = "Calculates heavy social battery drain for an action."
+expression = "15 - (actor.personality.extraversion * 0.1)"
+
+[formulas.sanity_derived]
+description = "Calculates an Eidolon's sanity based on core attributes."
+expression = "(actor.core.resilience + actor.core.composure) / 2"
+
+[formulas.reputation_derived]
+description = "Calculates an Eidolon's reputation based on charisma, passion, and grievances."
+expression = "actor.core.charisma + actor.core.passion - sum(actor.ledger.grievances.values())"
