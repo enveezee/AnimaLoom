@@ -1,4 +1,4 @@
-# AnimaLoom Test Report - 2025-07-30 00:26:10
+# AnimaLoom Test Report - 2025-07-30 00:49:24
 This report details the output of basic functional tests for the AnimaLoom engine components.
 Each test runs a specific module's `if __name__ == '__main__':` block.
 
@@ -62,32 +62,38 @@ Created Eidolon: Gregor the Guard (Type: static)
 Gregor Strength: 15
 Gregor Openness: 20
 Created Eidolon: Bandit (Type: template)
-Bandit 1 Strength: 10
-Bandit 1 Agility: 11
-Bandit 1 Agreeableness: -6
+Bandit 1 Strength: 11
+Bandit 1 Agility: 10
+Bandit 1 Agreeableness: -10
 Created Eidolon: Bandit (Type: template)
-Bandit 2 Strength: 11
-Bandit 2 Agility: 11
-Bandit 2 Agreeableness: -3
+Bandit 2 Strength: 12
+Bandit 2 Agility: 10
+Bandit 2 Agreeableness: -11
 ```
 **Exit Code:** 0
 
 ---
 
-## Test: The Loomwright (CLI Application)
+## Test: The Loomwright (GUI Application)
 ```bash
-python3 the_loomwright/main.py
+python3 -c "import tkinter as tk; from the_loomwright.main import TheLoomwrightApp; root = tk.Tk(); app = TheLoomwrightApp(root); root.destroy();"
 ```
-> Note: This test will show an EOFError as it expects interactive input. This is expected behavior for a non-interactive run.
+> Note: This test attempts to initialize the Tkinter GUI application and immediately destroy it to confirm basic startup without errors.
 
 ### Output
 ```
 ```
 ### Errors (Stderr)
 ```
-python3: can't open file '/home/nvz/Documents/gemini-cli/kismet/AnimaLoom/the_loomwright/the_loomwright/main.py': [Errno 2] No such file or directory
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import tkinter as tk; from the_loomwright.main import TheLoomwrightApp; root = tk.Tk(); app = TheLoomwrightApp(root); root.destroy();
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nvz/Documents/gemini-cli/kismet/AnimaLoom/the_loomwright/main.py", line 15, in <module>
+    from ui_components.the_loomwright_ui_builder import TheLoomwrightUIBuilder
+ModuleNotFoundError: No module named 'ui_components'
 ```
-**Exit Code:** 2
+**Exit Code:** 1
 
 ---
 

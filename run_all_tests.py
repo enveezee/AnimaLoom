@@ -24,7 +24,7 @@ def generate_test_report():
         {"name": "The Nexus (World State Manager)", "command": "python3 -m the_loom.the_nexus", "cwd": "."},
         {"name": "The Moirai (Formula Engine)", "command": "python3 -m the_loom.the_moirai", "cwd": "."},
         {"name": "The Alembic (Hyle Distiller)", "command": "python3 -m the_loom.the_alembic", "cwd": "."},
-        {"name": "The Loomwright (CLI Application)", "command": "python3 the_loomwright/main.py", "cwd": "the_loomwright", "note": "This test will show an EOFError as it expects interactive input. This is expected behavior for a non-interactive run."}
+        {"name": "The Loomwright (GUI Application)", "command": "python3 -c \"import tkinter as tk; from the_loomwright.main import TheLoomwrightApp; root = tk.Tk(); app = TheLoomwrightApp(root); root.destroy();\"", "cwd": ".", "note": "This test attempts to initialize the Tkinter GUI application and immediately destroy it to confirm basic startup without errors."}
     ]
 
     for test in tests:

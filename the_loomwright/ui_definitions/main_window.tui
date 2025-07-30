@@ -1,0 +1,26 @@
+# AnimaLoom: The Hyle - ui_definitions/main_window.tui
+# Defines the main window UI for The Loomwright.
+
+[[widgets]]
+type = "ttk.Label"
+name = "welcome_label"
+
+[widgets.config]
+text = "Welcome to The Loomwright!"
+font = "-size 18 -weight bold"
+
+[widgets.layout.pack]
+pady = 20
+
+[[widgets]]
+type = "ttk.Button"
+name = "load_module_button"
+
+[widgets.config]
+text = "Load Game Module"
+
+[widgets.layout.pack]
+pady = 10
+
+[widgets.bindings]
+"<Button-1>" = "handle_load_module_button_click"
