@@ -6,14 +6,7 @@ AnimaLoom is a highly flexible, data-driven engine designed for creating emergen
 
 ### Core Concepts (The Mythos)
 
-*   **AnimaLoom:** The overarching project, the "Soul Weaver" engine.
-*   **The Loom:** The core engine library, containing the fundamental components.
-*   **The Hyle:** Raw data definitions (TOML files) that provide the potential for game elements.
-*   **The Alembic:** The component responsible for distilling The Hyle into living game objects.
-*   **The Eidolon:** An instantiated character or agent within the simulation.
-*   **The Moirai:** The formula engine that determines the outcomes of interactions.
-*   **The Nexus:** The world state manager, holding all active Eidolons and their relationships.
-*   **The Loomwright:** The editor and simulator application for interacting with the AnimaLoom engine.
+For a deeper dive into the philosophical and thematic underpinnings of AnimaLoom, including the meaning behind its unique naming conventions, please refer to [THE_MYTHOS.md](docs/THE_MYTHOS.md).
 
 ### Getting Started
 
@@ -58,15 +51,15 @@ AnimaLoom/
 │   └── ui_definitions/       # UI definition files (e.g., .tui, .jui)
 │       └── main_window.tui
 ├── docs/                     # Project documentation
-│   └── design/               # Design documents
-│       ├── character_metrics_deep_dive.md
-│       ├── engine_architecture.md
-│       └── game_engine_outline.md
-├── save.sh                   # Script to commit changes and create backups
-├── run_all_tests.py          # Script to run internal tests and generate TEST_REPORT.md
+│   ├── design/               # Design documents
+│   │   ├── character_metrics_deep_dive.md
+│   │   ├── engine_architecture.md
+│   │   └── game_engine_outline.md
+│   └── THE_MYTHOS.md         # Documentation on the project's thematic architecture
+├── tools/                    # Utility scripts
+│   ├── save.sh               # Script to commit changes and create backups
+│   └── run_all_tests.py      # Script to run internal tests and generate TEST_REPORT.md
 ├── TEST_REPORT.md            # Generated test report (tracked by Git)
-├── THE_MYTHOS.md             # Documentation on the project's thematic architecture
-└── README.md                 # This file
 └── requirements.txt          # Project dependencies
 ```
 
@@ -75,7 +68,7 @@ AnimaLoom/
 To save your progress, commit changes to Git, and create a timestamped backup, run the `save.sh` script from the `AnimaLoom/` directory with a commit message:
 
 ```bash
-./save.sh "Your descriptive commit message here"
+./tools/save.sh "Your descriptive commit message here"
 ```
 
 This will also automatically run `run_all_tests.py` and update `TEST_REPORT.md` before committing.
