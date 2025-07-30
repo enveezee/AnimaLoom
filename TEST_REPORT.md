@@ -1,19 +1,15 @@
-# AnimaLoom Test Report - 2025-07-30 02:37:48
+# AnimaLoom Test Report - 2025-07-30 02:48:28
 This report details the output of basic functional tests for the AnimaLoom engine components.
 Each test runs a specific module's `if __name__ == '__main__':` block.
 
 ## Test: The Eidolon (Agent Class)
 ```bash
-python3 the_loom/the_eidolon.py
+python3 -m the_loom.the_eidolon
 ```
 ### Output
 ```
 ```
-### Errors (Stderr)
-```
-python3: can't open file '/home/nvz/Documents/gemini-cli/kismet/AnimaLoom/the_loom/the_loom/the_eidolon.py': [Errno 2] No such file or directory
-```
-**Exit Code:** 2
+**Exit Code:** 0
 
 ---
 
@@ -62,13 +58,13 @@ Created Eidolon: Gregor the Guard (Type: static)
 Gregor Strength: 15
 Gregor Openness: 20
 Created Eidolon: Bandit (Type: template)
-Bandit 1 Strength: 8
-Bandit 1 Agility: 11
-Bandit 1 Agreeableness: -7
+Bandit 1 Strength: 9
+Bandit 1 Agility: 10
+Bandit 1 Agreeableness: 0
 Created Eidolon: Bandit (Type: template)
 Bandit 2 Strength: 10
 Bandit 2 Agility: 10
-Bandit 2 Agreeableness: -9
+Bandit 2 Agreeableness: -3
 ```
 **Exit Code:** 0
 
@@ -82,18 +78,18 @@ python3 -c "import tkinter as tk; from the_loomwright.main import TheLoomwrightA
 
 ### Output
 ```
+[TheLoomwrightUIBuilder DEBUG] Registered dynamic builder: build_character_properties_section
+[TheLoomwrightUIBuilder DEBUG] Registered dynamic builder: build_character_attributes_section
+[TheLoomwrightUIBuilder DEBUG] Registered dynamic builder: build_card_properties_section
+[TheLoomwrightUIBuilder DEBUG] Building UI from main_window.tui
+[TheLoomwrightUIBuilder DEBUG] Loading UI definition: the_loomwright/ui_components/../ui_definitions/main_window.tui
+[TheLoomwrightUIBuilder DEBUG] Processing widget: welcome_label (Type: ttk.Label)
+[TheLoomwrightUIBuilder DEBUG] Processing widget: load_module_button (Type: ttk.Button)
+[TheLoomwrightUIBuilder DEBUG] Processing widget: character_creator_button (Type: ttk.Button)
+[TheLoomwrightUIBuilder DEBUG] Processing widget: card_creator_button (Type: ttk.Button)
+[TheLoomwrightUIBuilder DEBUG] UI build complete.
 ```
-### Errors (Stderr)
-```
-Traceback (most recent call last):
-  File "<string>", line 1, in <module>
-    import tkinter as tk; from the_loomwright.main import TheLoomwrightApp; root = tk.Tk(); app = TheLoomwrightApp(root); root.destroy();
-                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/nvz/Documents/gemini-cli/kismet/AnimaLoom/the_loomwright/main.py", line 15, in <module>
-    from ui_components.the_loomwright_ui_builder import TheLoomwrightUIBuilder
-ModuleNotFoundError: No module named 'ui_components'
-```
-**Exit Code:** 1
+**Exit Code:** 0
 
 ---
 

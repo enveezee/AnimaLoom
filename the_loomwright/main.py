@@ -12,9 +12,9 @@ from the_loom.the_moirai import TheMoirai
 from the_loom.the_nexus import TheNexus
 from the_loom.the_eidolon import Eidolon
 
-from ui_components.the_loomwright_ui_builder import TheLoomwrightUIBuilder
-from ui_components.the_loomwright_handlers import TheLoomwrightHandlers
-from ui_components import dynamic_ui_builders # Import the new module
+from .ui_components.the_loomwright_ui_builder import TheLoomwrightUIBuilder
+from .ui_components.the_loomwright_handlers import TheLoomwrightHandlers
+from .ui_components import dynamic_ui_builders # Import the new module
 
 class TheLoomwrightApp:
     def __init__(self, master):
