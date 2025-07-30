@@ -34,7 +34,7 @@ fi
 # 2. Create Source Backup
 echo "Creating source backup..."
 mkdir -p "$BACKUP_DIR"
-tar -czf "$BACKUP_FILE" -C "$PROJECT_ROOT" .
+tar -czf "$BACKUP_FILE" -C "$PROJECT_ROOT" --exclude="backups" .
 
 if [ $? -eq 0 ]; then
   echo "Source backup created: $BACKUP_FILE"
